@@ -1,0 +1,28 @@
+{
+  "name": "tart-vm",
+  "version": "0.0.0",
+  "description": "Tart behavior sandbox",
+  "scripts": {
+    "inject-examples": "node scripts/injectExamples.js",
+    "readme": "node examples/readme.js",
+    "test": "node scripts/test.js"
+  },
+  "main": "index.js",
+  "devDependencies": {
+    "nodeunit": "0.8.4",
+    "tart": "0.2.x",
+    "tart-stepping": "0.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tristanls/tart-vm.git"
+  },
+  "keywords": [
+    "tart",
+    "actor",
+    "vm",
+    "sandbox"
+  ],
+  "author": "Tristan Slominski <tristan.slominski@gmail.com>",
+  "license": "MIT"
+}
