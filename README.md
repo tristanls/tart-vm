@@ -62,6 +62,8 @@ sandbox({ok: ok2, module: module2String});
 
 ## Tests
 
+    npm test
+
 ## Documentation
 
 **Public API**
