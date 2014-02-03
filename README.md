@@ -32,8 +32,17 @@ var vm = require('../index.js');
 var sponsor = tart.minimal();
 
 var ok = sponsor(function okBeh(behavior) {
-    var fooBeh = this.sponsor(behavior);
-    fooBeh(this.self);
+    var foo = this.sponsor(behavior);
+    foo(this.self);
+    this.behavior = function printMsg(message) {
+        console.log('got message:', message);
+    };
+});
+var ok2 = sponsor(function okBeh(behaviors) {
+    var bar = this.sponsor(behaviors.barBeh);
+    var baz = this.sponsor(behaviors.bazBeh);
+    bar(this.self);
+    baz(this.self);
     this.behavior = function printMsg(message) {
         console.log('got message:', message);
     };
@@ -41,10 +50,13 @@ var ok = sponsor(function okBeh(behavior) {
 
 var moduleString = fs.readFileSync(
         path.normalize(path.join(__dirname, 'module.js')));
+var module2String = fs.readFileSync(
+        path.normalize(path.join(__dirname, 'module2.js')));
 
 var sandbox = sponsor(vm.sandboxBeh);
 
 sandbox({ok: ok, module: moduleString});
+sandbox({ok: ok2, module: module2String});
 
 ```
 
